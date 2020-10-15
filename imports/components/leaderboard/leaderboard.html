@@ -1,0 +1,15 @@
+<h2>Leaderboard</h2>
+
+<h3>Total seats in parliament: {{$ctrl.voteSeats + $ctrl.electoralSeats}} </h3>
+<h3>Total percent of vote left: {{$ctrl.percentLeft}} </h3>
+<form class="" ng-submit="$ctrl.finaliseVotes()">
+  <button class="button" type="submit">Finalise votes</button>
+</form>
+
+
+<div class="leaderboard-candidate" ng-repeat="candidate in $ctrl.candidates">
+  <h3>{{candidate.name}}</h3>
+  <p>Electoral Seats: {{candidate.electoralSeats}}</p>
+  <p>Percent of the vote: {{candidate.percentOfVote}}%</p>
+  <p>Number of seats in parliament: {{candidate.seats}}</p>
+</div>

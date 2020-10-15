@@ -1,0 +1,28 @@
+<h2>Advance Voting Games</h2>
+
+<div class="advanced-voting-game" ng-repeat="advanceVotingGame in $ctrl.advanceVotingGames">
+  <h3>{{advanceVotingGame.name}}</h3>
+  <ul>
+    <li ng-repeat="candidate in advanceVotingGame.candidates">
+      <span>{{candidate.name}}</span><br>
+      <span>Seats won: {{candidate.seatsWon}}</span><br>
+      <span>Percent won: {{candidate.percentWon}}</span>
+    </li>
+  </ul>
+  <form class="new-candidate" ng-submit="$ctrl.addCandidateToGame($ctrl.newCandidate[$index], $ctrl.seatsWon[$index], $ctrl.percentWon[$index], advanceVotingGame.name)">
+    <label for="$ctrl.newCandidate[$index]">Candidate name</label>
+    <input id="$ctrl.newCandidate[$index]" ng-model="$ctrl.newCandidate[$index]" type="text" list="$ctrl.candidate[$index]" name="text" placeholder="Add a candidate"/>
+    <datalist id="$ctrl.candidate[$index]">
+        <option ng-repeat="p in $ctrl.candidates" value="{{p.name}}">{{p.name}}</option>
+    </datalist>
+    <label for="$ctrl.seatsWon[$index]">Number of electoral seats won</label>
+    <input id="$ctrl.seatsWon[$index]"  ng-model="$ctrl.seatsWon[$index]" type="number" name="seats"/>
+    <label for="$ctrl.percentWon[$index]">Percent of vote won</label>
+    <input id="$ctrl.percentWon[$index]" ng-model="$ctrl.percentWon[$index]" type="number" name="percent"/>
+    <button class="button" type="submit">Add</button>
+  </form>
+</div>
+<hr>
+<form class="new-game" ng-submit="$ctrl.addAdvanceVotingGame($ctrl.newGame)">
+  <input ng-model="$ctrl.newGame" type="text" name="text" placeholder="Add a new game"/>
+</form>

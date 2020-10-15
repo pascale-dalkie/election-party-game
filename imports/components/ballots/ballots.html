@@ -1,0 +1,39 @@
+<h2>Ballots</h2>
+
+<div class="ballot">
+
+  <h3>Ballot one</h3>
+  <form class="" ng-submit="$ctrl.updateBallotOne($ctrl.ballotOnePercent, $ctrl.ballotOneTotal)">
+    <label for="$ctrl.ballotOnePercent">Total percent available in ballot</label>
+    <input id="$ctrl.ballotOnePercent" ng-model="$ctrl.ballotOnePercent" type="number" name="ballotOnePercent"/>
+    <label for="$ctrl.ballotOneTotal">Total votes in ballot</label>
+    <input id="$ctrl.ballotOneTotal" ng-model="$ctrl.ballotOneTotal" type="number" name="ballotOneTotal"/>
+    <button class="button" type="submit">Save</button>
+  </form>
+
+  <ul>
+    <li ng-repeat="candidate in $ctrl.ballotOne.candidates">
+      <span>{{candidate.name}}</span><br>
+      <span>Votes won: {{candidate.votesWon}}</span>
+    </li>
+  </ul>
+  <form ng-if="$ctrl.showBallotOneCandidates" class="new-candidate" ng-submit="$ctrl.addCandidateToBallotOne($ctrl.newCandidate[$index], $ctrl.votesWon[$index])">
+    <label for="$ctrl.newCandidate[$index]">Candidate name</label>
+    <input id="$ctrl.newCandidate[$index]" ng-model="$ctrl.newCandidate[$index]" type="text" list="$ctrl.candidate[$index]" name="text" placeholder="Add a candidate"/>
+    <datalist id="$ctrl.candidate[$index]">
+        <option ng-repeat="p in $ctrl.candidates" value="{{p.name}}">{{p.name}}</option>
+    </datalist>
+    <label for="$ctrl.votesWon[$index]">Number of votes won</label>
+    <input id="$ctrl.votesWon[$index]"  ng-model="$ctrl.votesWon[$index]" type="number" name="votes"/>
+    <button class="button" type="submit">Add</button>
+  </form>
+
+</div>
+
+<div class="ballot">
+
+  <h3>Ballot two</h3>
+  <label for="$ctrl.ballotTwoTotal">Total votes in ballot</label>
+  <input id="$ctrl.ballotTwoTotal" ng-model="$ctrl.ballotTwoTotal" type="number" name="ballotTwoTotal"/>
+
+</div>
