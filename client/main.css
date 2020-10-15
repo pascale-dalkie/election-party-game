@@ -1,4 +1,18 @@
 body {
-  padding: 10px;
+  padding: 10px 50px;
   font-family: sans-serif;
+}
+
+input[type=number] {
+  max-width: 50px;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+.candidates-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
 }

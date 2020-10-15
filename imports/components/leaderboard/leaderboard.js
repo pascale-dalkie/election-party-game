@@ -60,14 +60,14 @@ class LeaderboardCtrl {
 
   finaliseVotes(){
     this.yeetTheWeak(100);
-    var totalSeats = ElectoralGame.findOne().electoralSeats + this.voteSeats;
+    var totalSeats = this.voteSeats;
     var candidates = Candidates.find({}, {
       sort: {
         percentOfVote: 1
       }
     });
     candidates.forEach(function(candidate){
-      var candidateSeats = parseInt((candidate.percentOfVote/100) * totalSeats);
+      var candidateSeats = Math.round((candidate.percentOfVote/100) * totalSeats);
       Candidates.update(
         { _id: candidate._id},
         { name: candidate.name, electoralSeats: candidate.electoralSeats, percentOfVote: candidate.percentOfVote, seats: candidateSeats }

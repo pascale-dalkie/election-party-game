@@ -15,8 +15,10 @@
     <datalist id="$ctrl.candidate[$index]">
         <option ng-repeat="p in $ctrl.candidates" value="{{p.name}}">{{p.name}}</option>
     </datalist>
+    <br>
     <label for="$ctrl.seatsWon[$index]">Number of electoral seats won</label>
     <input id="$ctrl.seatsWon[$index]"  ng-model="$ctrl.seatsWon[$index]" type="number" name="seats"/>
+    <br>
     <label for="$ctrl.percentWon[$index]">Percent of vote won</label>
     <input id="$ctrl.percentWon[$index]" ng-model="$ctrl.percentWon[$index]" type="number" name="percent"/>
     <button class="button" type="submit">Add</button>

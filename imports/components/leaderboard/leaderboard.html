@@ -6,10 +6,13 @@
   <button class="button" type="submit">Finalise votes</button>
 </form>
 
+<div class="candidates-grid">
 
-<div class="leaderboard-candidate" ng-repeat="candidate in $ctrl.candidates">
-  <h3>{{candidate.name}}</h3>
-  <p>Electoral Seats: {{candidate.electoralSeats}}</p>
-  <p>Percent of the vote: {{candidate.percentOfVote}}%</p>
-  <p>Number of seats in parliament: {{candidate.seats}}</p>
+  <div class="leaderboard-candidate" ng-repeat="candidate in $ctrl.candidates">
+    <h3>{{candidate.name}}</h3>
+    <p>Electoral Seats: {{candidate.electoralSeats}}</p>
+    <p>Percent of the vote: {{candidate.percentOfVote}}%</p>
+    <p>Number of vote seats: {{candidate.seats}}</p>
+  </div>
+
 </div>
